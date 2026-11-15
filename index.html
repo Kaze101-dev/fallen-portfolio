@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fallen — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#03020a; --text:#fff; --muted:rgba(255,255,255,.82); --dim:rgba(255,255,255,.6);
+  --purple:#8f00ff; --purple-soft:#a24dff; --line:rgba(255,255,255,.1); --card:rgba(255,255,255,.035);
+  --pad:clamp(24px,16.5vw,340px);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px;height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 85% 10%,rgba(24,28,80,.55),transparent 70%),radial-gradient(ellipse 60% 50% at 5% 55%,rgba(40,12,60,.45),transparent 70%)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--purple-soft);outline-offset:3px}
+
+header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 30px) clamp(20px,3.5vw,66px) 0}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1;font-weight:700;font-size:20px;letter-spacing:.08em}
+.logo small{font-size:11px;font-weight:500;letter-spacing:0;margin-bottom:2px}
+nav{display:flex;align-items:center;gap:32px;font-size:16px;font-weight:400;color:var(--muted)}
+nav a{transition:color .2s}
+nav a:hover{color:#fff}
+nav .pill{color:#fff;font-weight:500;background:#000;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 24px;box-shadow:0 0 18px rgba(140,90,255,.28),inset 0 0 10px rgba(140,90,255,.12)}
+
+main{position:relative;z-index:1}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px var(--pad) 22vh max(20px,calc(var(--pad) - 6vw))}
+h1{margin:0;font-size:clamp(44px,5.4vw,104px);line-height:1.05;letter-spacing:-.02em;display:flex;flex-wrap:wrap;column-gap:.18em;align-items:baseline}
+h1 b{font-weight:700}
+h1 span{font-weight:300;color:#fff;text-shadow:0 0 4px #fff,0 0 12px rgba(255,255,255,.85),0 0 28px rgba(210,225,255,.6),0 0 56px rgba(170,190,255,.4)}
+.role{margin:22px 0 14px;font-size:clamp(20px,1.5vw,28px);font-weight:400;min-height:1.3em}
+.role em{font-style:normal;color:var(--purple)}
+.role i{display:inline-block;width:2px;height:1em;margin-left:2px;vertical-align:-.12em;background:var(--purple);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{margin:0;max-width:680px;font-size:clamp(16px,1.1vw,19px);line-height:1.65;color:var(--muted)}
+.btn{align-self:flex-start;margin-top:44px;display:inline-flex;align-items:center;gap:10px;padding:10px 12px;background:var(--purple);border:1px solid var(--purple-soft);border-radius:4px;font-size:18px;font-weight:500;color:#fff;transition:background .2s,box-shadow .2s}
+.btn:hover{background:#a21cff;box-shadow:0 0 22px rgba(143,0,255,.5)}
+
+.sec{padding:110px var(--pad) 30px;text-align:center}
+.sec h2{margin:0;font-size:clamp(32px,3.4vw,54px);font-weight:700;letter-spacing:-.02em}
+.sub{margin:10px 0 44px;color:var(--dim);font-size:clamp(16px,1.2vw,19px)}
+.grid{display:grid;gap:16px;text-align:left;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;backdrop-filter:blur(8px);transition:border-color .25s,box-shadow .25s}
+a.card:hover,.skill:hover{border-color:rgba(162,77,255,.6);box-shadow:0 0 28px rgba(143,0,255,.18)}
+.skill{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:18px;font-weight:500}
+.skill span{font-size:14px;font-weight:400;color:var(--purple-soft);white-space:nowrap}
+.pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.pills .card{display:flex;align-items:baseline;gap:10px;padding:16px 24px;font-weight:500}
+.pills small{font-size:15px;font-weight:400;color:var(--dim)}
+.who{display:flex;align-items:center;gap:14px}
+.av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:linear-gradient(135deg,#8f00ff,#4a3bff)}
+.who b{display:block;font-size:17px;font-weight:500}
+.who small{font-size:14px;color:var(--dim)}
+.feat{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;text-align:left;margin-bottom:16px;padding:22px}
+.shot{aspect-ratio:16/10;border-radius:10px;display:grid;place-items:center;color:var(--dim);font-size:15px;background:radial-gradient(circle at 30% 30%,rgba(143,0,255,.35),transparent 60%),linear-gradient(135deg,#0d0a2a,#05030f);border:1px solid var(--line)}
+.feat h3{margin:0 0 10px;font-size:28px;font-weight:700}
+.feat p{margin:0 0 16px;line-height:1.65;color:var(--muted);font-size:16px}
+.feat ul{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted)}
+.feat li::before{content:"✓";color:var(--purple-soft);margin-right:10px}
+.feat .btn{margin-top:0}
+.ico{font-size:26px;margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:19px;font-weight:500}
+.card p{margin:0;font-size:15px;line-height:1.6;color:var(--dim)}
+footer{position:relative;z-index:1;margin-top:90px;padding:0 var(--pad) 50px;color:var(--dim);font-size:15px}
+.fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px}
+footer h4{margin:0 0 14px;color:#fff;font-size:17px;font-weight:500}
+footer p{margin:0;line-height:1.65}
+footer a{display:block;margin-bottom:8px}
+footer a:hover{color:#fff}
+.copy{margin-top:48px;font-size:14px}
+@media (max-width:760px){.feat{grid-template-columns:1fr}}
+@media (max-width:760px){
+  nav{gap:14px;font-size:13px} nav .pill{display:none}
+  .sec{padding:80px 24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.role i{animation:none}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header>
+  <a class="logo" href="#top" aria-label="Fallen — home"><small>&lt;/&gt;</small>FLN</a>
+  <nav>
+    <a href="#experience">Experience</a>
+    <a href="#socials">Socials</a>
+    <a href="#clients">Clients</a>
+    <a href="#projects">Projects</a>
+    <a class="pill" href="#contact">Contact Me</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1><b>Hi, I’m</b><span>Fallen</span></h1>
+    <p class="role">A passionate <em id="type"></em><i></i></p>
+    <p class="lead">Developer with years of experience, driven by curiosity and a passion for turning ideas into working solutions. I enjoy learning new technologies and creating software that makes an impact.</p>
+    <a class="btn" href="#projects">Explore My Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </section>
+
+  <section class="sec" id="experience">
+    <h2>Experience</h2><p class="sub">A short line about your track record</p>
+    <div class="grid"><div class="card skill">Skill or technology <span>2021 - Present</span></div><div class="card skill">Skill or technology <span>2022 - Present</span></div><div class="card skill">Skill or technology <span>2023 - Present</span></div><div class="card skill">Skill or technology <span>2020 - Present</span></div><div class="card skill">Skill or technology <span>2023 - Present</span></div><div class="card skill">Skill or technology <span>2021 - Present</span></div></div>
+  </section>
+
+  <section class="sec" id="socials">
+    <h2>Connect With Me</h2><p class="sub">My online presence</p>
+    <div class="pills">
+      <a class="card" href="#">Discord <small>@username</small></a>
+      <a class="card" href="#">GitHub <small>@username</small></a>
+      <a class="card" href="#">X <small>@handle</small></a>
+    </div>
+  </section>
+
+  <section class="sec" id="clients">
+    <h2>Clients &amp; Affiliations</h2><p class="sub">Where my work makes an impact</p>
+    <div class="grid"><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a></div>
+  </section>
+
+  <section class="sec" id="projects">
+    <h2>Featured Projects</h2><p class="sub">Highlights from my portfolio</p>
+    <div class="card feat">
+      <div class="shot">Project preview</div>
+      <div>
+        <h3>Project one</h3>
+        <p>A short description of your best project: what it is, who it is for and what makes it stand out.</p>
+        <ul><li>Key feature one</li><li>Key feature two</li><li>Key feature three</li></ul>
+        <a class="btn" href="#">View project</a>
+      </div>
+    </div>
+    <div class="grid"><div class="card"><div class="ico">🚀</div><h3>Project two</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🛠️</div><h3>Project three</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🤖</div><h3>Project four</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">📊</div><h3>Project five</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">⚡</div><h3>Project six</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🧩</div><h3>Project seven</h3><p>One line on what it does and the tech behind it.</p></div></div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="fcols">
+    <div><h4>Contact</h4><p>Email:</p><a href="mailto:you@example.com">you@example.com</a></div>
+    <div><h4>Quick Links</h4><a href="#experience">Experience</a><a href="#socials">Socials</a><a href="#clients">Clients</a><a href="#projects">Projects</a></div>
+    <div><h4>About</h4><p>Developer with years of experience, driven by curiosity and a passion for turning ideas into working solutions.</p></div>
+  </div>
+  <p class="copy">© 2026 Fallen</p>
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('bg'),x=c.getContext('2d'),W,H,stars=[];
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    var D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+    c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0);
+    stars=[];for(var i=0,n=Math.round(W*H/7500);i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.4,a:Math.random()*.55+.25,p:Math.random()*6.28,s:Math.random()*1.4+.4});
+  }
+  function bez(p,t){var u=1-t;return[u*u*u*p[0][0]+3*u*u*t*p[1][0]+3*u*t*t*p[2][0]+t*t*t*p[3][0],u*u*u*p[0][1]+3*u*u*t*p[1][1]+3*u*t*t*p[2][1]+t*t*t*p[3][1]];}
+  var BC=[-.12,.011,.126,.19,.206,.18,.21,.285,.4],SP=[.035,.037,.037,.029,.0235,.027,.031,.035,.04],MM=[-2.2,-1.7,-1,0,1.2,2.4];
+  function cr(a,u){var n=a.length-1,f=Math.min(u*n,n-.0001),i=Math.floor(f),t=f-i,p0=a[Math.max(i-1,0)],p1=a[i],p2=a[i+1],p3=a[Math.min(i+2,n)];return .5*(2*p1+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t*t*t);}
+  function wv(u,ms,i){var G=Math.sqrt(W*H);return[u*W,H-(cr(BC,u)-MM[i]*cr(SP,u))*G];}
+  function draw(ms){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i],a=s.a*(RM?1:.55+.45*Math.sin(ms*.001*s.s+s.p));x.fillStyle='rgba(255,255,255,'+a.toFixed(3)+')';x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fill();}
+    var cols=['rgba(45,45,150,.5)','rgba(115,45,200,.65)','rgba(75,75,200,.4)','rgba(85,80,235,.9)','rgba(95,45,170,.32)','rgba(75,55,160,.24)'];
+    for(var i=0;i<6;i++){
+      x.strokeStyle=cols[i];x.lineWidth=i===3?1.3:1;
+      x.beginPath();for(var j=0;j<=120;j++){var q=wv(j/120,ms,i);j?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]);}x.stroke();
+      if(i<2||i===3||i===4){var d=wv(((ms*.00004*(1+i*.15))+i*.19)%1,ms,i);x.fillStyle='rgba(150,130,255,.95)';x.shadowColor='#7d5cff';x.shadowBlur=10;x.beginPath();x.arc(d[0],d[1],1.8,0,6.283);x.fill();x.shadowBlur=0;}
+    }
+    x.globalAlpha=1;
+    if(!RM)requestAnimationFrame(draw);
+  }
+  size();addEventListener('resize',function(){size();if(RM)draw(0)});
+  requestAnimationFrame(draw);
+
+  var el=document.getElementById('type'),words=['programmer','developer','creator'],w=0,n=0,del=false;
+  if(RM){el.textContent=words[0];return;}
+  (function tick(){
+    var s=words[w],d=del?45:95;n+=del?-1:1;el.textContent=s.slice(0,n);
+    if(!del&&n===s.length){del=true;d=1500}else if(del&&n===0){del=false;w=(w+1)%words.length;d=350}
+    setTimeout(tick,d);
+  })();
+})();
+</script>
+</body>
+</html>
