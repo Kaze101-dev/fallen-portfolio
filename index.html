@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>My Portfolio</title>
+<title>Fallen — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -53,6 +53,11 @@ h1 span{font-weight:300;color:#fff;text-shadow:0 0 4px #fff,0 0 12px rgba(255,25
 a.card:hover,.skill:hover{border-color:rgba(162,77,255,.6);box-shadow:0 0 28px rgba(143,0,255,.18)}
 .skill{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:18px;font-weight:500}
 .skill span{font-size:14px;font-weight:400;color:var(--purple-soft);white-space:nowrap}
+.skill{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px}
+.skill span.l2{color:#8f9cff}
+.skill span.l3{color:var(--dim)}
+.tag{display:block;margin-bottom:10px;font-size:13px;color:var(--purple-soft)}
+.open{border-style:dashed}
 .pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 .pills .card{display:flex;align-items:baseline;gap:10px;padding:16px 24px;font-weight:500}
 .pills small{font-size:15px;font-weight:400;color:var(--dim)}
@@ -109,8 +114,8 @@ footer a:hover{color:#fff}
   </section>
 
   <section class="sec" id="experience">
-    <h2>Experience</h2><p class="sub">A short line about your track record</p>
-    <div class="grid"><div class="card skill">Skill or technology <span>2021 - Present</span></div><div class="card skill">Skill or technology <span>2022 - Present</span></div><div class="card skill">Skill or technology <span>2023 - Present</span></div><div class="card skill">Skill or technology <span>2020 - Present</span></div><div class="card skill">Skill or technology <span>2023 - Present</span></div><div class="card skill">Skill or technology <span>2021 - Present</span></div></div>
+    <h2>Experience</h2><p class="sub">Technologies I work with, and the ones I’m growing into</p>
+    <div class="grid"><div class="card skill">Java <span class="l1">Experienced</span></div><div class="card skill">Skript <span class="l1">Experienced</span></div><div class="card skill">Spigot <span class="l1">Experienced</span></div><div class="card skill">Bukkit API <span class="l1">Experienced</span></div><div class="card skill">PlaceholderAPI <span class="l1">Experienced</span></div><div class="card skill">LuckPerms <span class="l1">Experienced</span></div><div class="card skill">Vault <span class="l1">Experienced</span></div><div class="card skill">Git <span class="l1">Experienced</span></div><div class="card skill">GitHub <span class="l1">Experienced</span></div><div class="card skill">IntelliJ IDEA <span class="l1">Experienced</span></div><div class="card skill">JavaScript <span class="l2">Currently Learning</span></div><div class="card skill">SQL <span class="l2">Currently Learning</span></div><div class="card skill">Paper <span class="l2">Currently Learning</span></div><div class="card skill">Velocity <span class="l2">Currently Learning</span></div><div class="card skill">Gradle <span class="l2">Currently Learning</span></div><div class="card skill">MySQL / PostgreSQL <span class="l2">Currently Learning</span></div><div class="card skill">Redis <span class="l2">Currently Learning</span></div><div class="card skill">Linux <span class="l2">Currently Learning</span></div><div class="card skill">Docker <span class="l3">Exploring</span></div><div class="card skill">REST APIs <span class="l3">Exploring</span></div></div>
   </section>
 
   <section class="sec" id="socials">
@@ -118,35 +123,43 @@ footer a:hover{color:#fff}
     <div class="pills">
       <a class="card" href="#">Discord <small>@username</small></a>
       <a class="card" href="#">GitHub <small>@username</small></a>
-      <a class="card" href="#">X <small>@handle</small></a>
+      <a class="card" href="mailto:you@example.com">Email <small>you@example.com</small></a>
     </div>
   </section>
 
   <section class="sec" id="clients">
-    <h2>Clients &amp; Affiliations</h2><p class="sub">Where my work makes an impact</p>
-    <div class="grid"><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a><a class="card who" href="#"><span class="av">C</span><span><b>Client name</b><small>What they do</small></span></a></div>
+    <h2>Clients &amp; Affiliations</h2><p class="sub">Independent work today, with room for future positions and clients</p>
+    <div class="grid">
+      <div class="card who"><span class="av">F</span><span><b>FracturedSMP</b><small>Founder / Developer · Independent Minecraft network project. Infrastructure and multi-server planning, plugin configuration and integration, permissions and ranks, server setup and troubleshooting.</small></span></div>
+      <div class="card who open"><span class="av">+</span><span><b>Future positions &amp; clients</b><small>Added here as my experience grows.</small></span></div>
+    </div>
   </section>
 
   <section class="sec" id="projects">
-    <h2>Featured Projects</h2><p class="sub">Highlights from my portfolio</p>
+    <h2>Featured Projects</h2><p class="sub">Current and planned work</p>
     <div class="card feat">
-      <div class="shot">Project preview</div>
+      <div class="shot">FracturedSMP · screenshot placeholder</div>
       <div>
-        <h3>Project one</h3>
-        <p>A short description of your best project: what it is, who it is for and what makes it stand out.</p>
-        <ul><li>Key feature one</li><li>Key feature two</li><li>Key feature three</li></ul>
+        <span class="tag">Independent project · Minecraft Network / Infrastructure · Ongoing</span>
+        <h3>FracturedSMP</h3>
+        <p>My own Minecraft network project, focused on developing and managing a multi-server environment with custom gameplay experiences, server infrastructure, and network integrations.</p>
+        <ul><li>Network architecture and proxy configuration</li><li>Lobby infrastructure and survival environment</li><li>Plugin integrations, permissions and player progression</li><li>Custom gameplay systems</li></ul>
         <a class="btn" href="#">View project</a>
       </div>
     </div>
-    <div class="grid"><div class="card"><div class="ico">🚀</div><h3>Project two</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🛠️</div><h3>Project three</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🤖</div><h3>Project four</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">📊</div><h3>Project five</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">⚡</div><h3>Project six</h3><p>One line on what it does and the tech behind it.</p></div><div class="card"><div class="ico">🧩</div><h3>Project seven</h3><p>One line on what it does and the tech behind it.</p></div></div>
+    <div class="grid">
+      <div class="card"><div class="ico">🧩</div><span class="tag">Planned · Plugin Development</span><h3>FracturedCore</h3><p>A planned custom plugin and core project to demonstrate modular Java development, custom commands, player management, permissions, configuration systems and integrations.</p></div>
+      <div class="card"><div class="ico">🌐</div><span class="tag">Planned · Network Engineering</span><h3>FracturedNetwork</h3><p>A planned project exploring multi-server communication, Velocity integration, Redis, player synchronization and shared network services.</p></div>
+      <div class="card"><div class="ico">🔌</div><span class="tag">Future · Plugin Development</span><h3>Custom Plugin Projects</h3><p>Space for future independent Paper and Spigot plugin projects, each built to demonstrate a specific technical ability.</p></div>
+    </div>
   </section>
 </main>
 
 <footer id="contact">
   <div class="fcols">
-    <div><h4>Contact</h4><p>Email:</p><a href="mailto:you@example.com">you@example.com</a></div>
+    <div><h4>Contact</h4><p>Interested in working together, discussing a project, or exploring a development opportunity? Feel free to get in touch.</p><p style="margin-top:12px"><a href="mailto:you@example.com">you@example.com</a></p></div>
     <div><h4>Quick Links</h4><a href="#experience">Experience</a><a href="#socials">Socials</a><a href="#clients">Clients</a><a href="#projects">Projects</a></div>
-    <div><h4>About</h4><p>Developer with years of experience, driven by curiosity and a passion for turning ideas into working solutions.</p></div>
+    <div><h4>About</h4><p>I’m a Minecraft developer focused on Java-based server development, custom gameplay systems, and Minecraft network infrastructure. My long-term goal is to become a professional Minecraft network developer.</p></div>
   </div>
   <p class="copy">© 2026 Fallen</p>
 </footer>
